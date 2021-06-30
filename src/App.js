@@ -1,23 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import LoadImages from './components/LoadImages.jsx';
 
 function App() {
+
+  const arrImgs = [
+                  "/img/1.jpg",
+                  "/img/2.jpg",
+                  "/img/3.jpg"
+                ]
+
+ 
+  //let imgHtml = arrImgs.map( (img,i)=> {return  (<LoadImage key={i} src={img} />) }) 
+    
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="large-div">
+        The large text
+      </div>
+      <LoadImages src={arrImgs[0]}/>      
     </div>
   );
 }
