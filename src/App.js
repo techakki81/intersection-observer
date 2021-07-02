@@ -1,4 +1,4 @@
-import LoadImages from './components/LoadImages.jsx';
+import LazyLoadImage from './components/LazyLoadImage.jsx';
 
 function App() {
 
@@ -6,17 +6,17 @@ function App() {
                   "/img/1.jpg",
                   "/img/2.jpg",
                   "/img/3.jpg"
-                ]
+                ]  
 
- 
-  //let imgHtml = arrImgs.map( (img,i)=> {return  (<LoadImage key={i} src={img} />) }) 
+    arrImgs.map( (p) => {console.log(p); return p} )
     
   return (
     <div className="App">
       <div className="large-div">
         The large text
-      </div>
-      <LoadImages src={arrImgs[0]}/>      
+      </div>     
+
+     { arrImgs.map( (imgSrc,index) =>   <LazyLoadImage key={index}  src={imgSrc} /> ) }
     </div>
   );
 }
