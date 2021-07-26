@@ -1,0 +1,100 @@
+
+import './App.css';
+import Form from './componets/Form'
+import {useState,useEffect} from 'react'
+import usePerson from  './usePerson'
+import { act } from 'react-dom/cjs/react-dom-test-utils.production.min';
+
+function App() {
+
+
+
+  const buyBeer = () =>{
+    console.log(` ---- Beer ----------`)
+    console.log(`went to the alley`)
+    console.log(`got confused`)
+    console.log(`finally bought 6 Carolouse`)
+   
+    return 6
+  }
+  
+  const buyDiapers = () =>{
+    console.log(` ---- Diapers ----------`)
+    console.log(`went to the baby section`)
+    console.log(`got confused`)
+    console.log(`called my wife...`)
+    console.log(`asked the store keeper for help`)
+    console.log(`bought 2 packets`)
+    return 2 
+  }
+
+  //step 2
+  const buyVegetables = () =>{
+    console.log(` ---- Vegetables ----------`)
+    console.log(`went to the cold storage area`)
+    console.log(`picked veggies like a Bruce Lee`)
+    console.log(`bought 10  packets`)
+
+    return 10 
+  }
+
+
+  // think about the functionality .  // object is data...you dont think about data but functionality
+  //step 1
+  // function pay (fBeer, fDiaper)  {
+  //   let beerCost =  fBeer()
+  //   let fDiaperCost = fDiaper()
+  //   console.log(` opened wallet`)
+  //   console.log( ` insert card in reader`)
+  //   console.log(` added beer + diaper = ${beerCost+fDiaperCost}`  )
+  //   return beerCost+fDiaperCost
+    
+  // }
+
+  function pay ( arrFActivities)  {
+    
+   
+ //step 1
+  //  let finalCost = 0
+  //   arrFActivities.forEach( (cur) => {
+  //     finalCost= finalCost + cur() 
+  //   } )
+
+  //step 2
+     let finalCost = 0
+     arrFActivities.forEach( (cur) => {
+       finalCost= finalCost + cur() + cur.unitCost
+     } )
+
+
+    console.log(` ---- Payment ----------`)  
+    console.log(` opened wallet`)
+    console.log( ` insert card in reader`)
+    console.log(` Final cost = ${finalCost}`  )  
+    return finalCost    
+  }
+
+
+  // step1 . 
+   //let myActivity = pay ( buyDiapers , buyBeer);
+   
+   //step 2
+   //let myActivity2 = pay ( [buyDiapers , buyBeer , buyVegetables]);
+
+  // step 3 .  ofcourse add diff actions... 
+   buyDiapers.unitCost = 10
+   buyBeer.unitCost = 2
+   buyVegetables.unitCost = 3
+   let myActivity2 = pay ( [buyDiapers , buyBeer , buyVegetables]);
+  
+
+
+
+  return (
+    <div className="flex">
+       {/* {pay ( buyDiapers , buyBeer)}            */}
+    </div>
+  );
+}
+
+export default App;
